@@ -15,6 +15,23 @@ namespace TodoApi.Controllers
         }
         public ITodoRepository TodoItems { get; set; }
 
+        //  GET /api/todo
+        [HttpGet]
+        public IEnumerable<TodoItem> GetAll()
+        {
+            return TodoItems.GetAll();
+        }
 
+        //  GET /api/todo/{id}
+        [HttpGet("{id}", Name = "GetTodo")]
+        public IActionResult GetById(string Id)
+        {
+            var item = TodoItems.Find(Id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            return new ObjectResult(item);
+        }
     }
 }
