@@ -2,7 +2,7 @@
 
 namespace TodoApi.Models
 {
-    interface ITodoRepository
+    public interface ITodoRepository
     {
         void Add(TodoItem item);
         IEnumerable<TodoItem> GetAll();
