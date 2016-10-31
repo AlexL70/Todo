@@ -1,4 +1,6 @@
 ﻿(function () {
+    "use strict";
+
     angular.module('todoApp')
     .controller('mainController', MainController);
 
@@ -7,6 +9,6 @@
     function MainController() {
         var main = this;
 
-        main.caption = 'This is todo application.'
+        main.caption = 'Todo application.'
     }
 })();

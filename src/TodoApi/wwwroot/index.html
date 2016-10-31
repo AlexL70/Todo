@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
     <title>Todo app</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <script src="scripts/jquery.min.js"></script>
-    <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/angular.min.js"></script>    
 </head>
 <body ng-app="todoApp" ng-controller="mainController as main">
     <header>
@@ -41,8 +38,16 @@
         </div>
     </footer>
 
+    <!--User libraries-->
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/bootstrap.min.js"></script>
+    <script src="/lib/angular.min.js"></script>
+    <script src="/lib/angular-ui-router.min.js"></script>>
+
     <!--Angular application-->
-    <script src="/js/todoApp.js"></script>
-    <script src="/js/todoApp.controller.js"></script>
+    <script src="/app/todoApp.js"></script>
+    <script src="/app/todoApp.controller.js"></script>
+    <script src="/app/todoApp.router.js"></script>
+    <script src="/app/list/todoapp.list.controller.js"></script>
 </body>
 </html>
