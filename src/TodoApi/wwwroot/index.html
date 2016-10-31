@@ -9,7 +9,37 @@
     <script src="scripts/angular.min.js"></script>    
 </head>
 <body ng-app="todoApp" ng-controller="mainController as main">
-    <h3>{{main.caption}}</h3>
+    <header>
+        <h3 class="text-center">{{main.caption}}</h3>
+    </header>
+
+    <ui-view>
+        <div class="text-center initial-loading">
+            <h4>Loading data...</h4>
+        </div>
+    </ui-view>
+
+    <footer class="panel-footer">
+        <div class="container">
+            <div class="row">
+                <section class="col-sm-4">
+                    Todo App. This is completely educational project. It has been created using ASP.Net Core
+                    Web Api and AgularJS 1.5.8. For demo puropses only.
+                </section>
+                <section class="col-sm-4">
+                    Todo App was initially created in <a target="_blank" href="https://github.com/AlexL70/Todo">this</a> repository by
+                    <a target="_blank" href="https://www.linkedin.com/in/alexanderlevinson">Alexander Levinson</a>.
+                    Web Api (backend) part of this application has been created in strict accordance with
+                    <a target="_blank" href="https://docs.asp.net/en/latest/tutorials/first-web-api.html">this</a> tutorial.
+                </section>
+                <section class="col-sm-4">
+                    You may copy, change or use this code whatever way you want on your own risk.
+                    Author does not take any responsibility for any harm caused by using this
+                    application or any part of it.
+                </section>
+            </div>
+        </div>
+    </footer>
 
     <!--Angular application-->
     <script src="/js/todoApp.js"></script>
