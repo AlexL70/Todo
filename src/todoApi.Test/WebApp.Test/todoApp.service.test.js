@@ -32,4 +32,20 @@
         });
         $httpBackend.flush();
     });
+
+    it('GetTodo', function () {
+        $httpBackend.whenGET(ApiBasePath + '/969ec3af-e93f-4a0e-938e-f4441404e99a').respond({
+                "key": "969ec3af-e93f-4a0e-938e-f4441404e99a",
+                "name": "Item 1",
+                "isComplete": false
+        });
+        service.GetTodo('969ec3af-e93f-4a0e-938e-f4441404e99a').then(function (response) {
+            expect(response.data).toEqual({
+                "key": "969ec3af-e93f-4a0e-938e-f4441404e99a",
+                "name": "Item 1",
+                "isComplete": false
+            });
+        });
+        $httpBackend.flush();
+    });
 });

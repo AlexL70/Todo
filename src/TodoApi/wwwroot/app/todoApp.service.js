@@ -14,6 +14,11 @@
             return response;
         };
 
+        service.GetTodo = function (id) {
+            var response = $http.get(ApiBasePath + '/' + id);
+            return response;
+        };
+
         return service;
     }
 })();
