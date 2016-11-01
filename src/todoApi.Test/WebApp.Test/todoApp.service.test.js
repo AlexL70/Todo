@@ -48,4 +48,48 @@
         });
         $httpBackend.flush();
     });
+
+    it('Create', function () {
+        $httpBackend.whenPOST(ApiBasePath, {
+            "name": "feed dog",
+            "isComplete": true
+        }).respond({
+            "key": "81f40498-349d-47b6-8c44-e5f370c59c94",
+            "name": "feed dog",
+            "isComplete": true
+        });
+        service.Create({
+            "name": "feed dog",
+            "isComplete": true
+        }).then(function (response) {
+            expect(response.data).toEqual({
+                "key": "81f40498-349d-47b6-8c44-e5f370c59c94",
+                "name": "feed dog",
+                "isComplete": true
+            });
+        });
+    });
+
+    it('Update', function () {
+        $httpBackend.whenPUT(ApiBasePath + '/82fdc532-b643-4ba9-9aa8-42bff0f54315', {
+            "key": "82fdc532-b643-4ba9-9aa8-42bff0f54315",
+            "name": "feed fox",
+            "isComplete": true
+        }).respond({ Status: 204 });
+        service.Update({
+            "key": "82fdc532-b643-4ba9-9aa8-42bff0f54315",
+            "name": "feed fox",
+            "isComplete": true
+        }).then(function (response) {
+            expect(response.Status).toEqual(204);
+        });
+    });
+
+    it('Delete', function () {
+        $httpBackend.whenDELETE(ApiBasePath + '/82fdc532-b643-4ba9-9aa8-42bff0f54315')
+            .respond({ Status: 204 });
+        service.Delete('82fdc532-b643-4ba9-9aa8-42bff0f54315').then(function (response) {
+            expect(response.Status).toEqual(204);
+        });
+    });
 });
