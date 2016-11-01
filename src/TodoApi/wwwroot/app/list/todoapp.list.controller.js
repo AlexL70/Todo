@@ -7,7 +7,7 @@
     ListController.$inject = [];
 
     function ListController() {
-        lstCtrl = this;
+        var lstCtrl = this;
 
         this.list = [];
     }
