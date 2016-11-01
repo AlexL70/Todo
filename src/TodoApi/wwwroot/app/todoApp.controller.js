@@ -2,13 +2,13 @@
     "use strict";
 
     angular.module('todoApp')
-    .controller('mainController', MainController);
+    .controller('MainController', MainController);
 
     MainController.$inject = [];
 
     function MainController() {
         var main = this;
 
-        main.caption = 'Todo application.'
+        main.caption = 'Todo application'
     }
 })();
