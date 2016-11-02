@@ -3,12 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <title>Todo app</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
 </head>
 <body ng-app="todoApp" ng-controller="MainController as main">
     <header>
         <h3 class="text-center">{{main.caption}}</h3>
     </header>
+
+    <loading-spinner class="loading"></loading-spinner>
 
     <ui-view>
         <div class="text-center initial-loading">
@@ -39,16 +42,19 @@
     </footer>
 
     <!--User libraries-->
-    <script src="/lib/jquery.min.js"></script>
-    <script src="/lib/bootstrap.min.js"></script>
-    <script src="/lib/angular.min.js"></script>
-    <script src="/lib/angular-ui-router.min.js"></script>>
-
+    <script src="node_modules/jquery/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <!--Angular application-->
     <script src="/app/todoApp.js"></script>
     <script src="/app/todoApp.controller.js"></script>
     <script src="/app/todoApp.router.js"></script>
+    <script src="/app/loading/loading.component.js"></script>
     <script src="/app/list/todoapp.list.controller.js"></script>
     <script src="/app/itemview/todoApp.itemview.component.js"></script>
+    <!-- Service -->
+    <script src="app/service/todoService.js"></script>
+    <script src="app/service/todoService.service.js"></script>
 </body>
 </html>

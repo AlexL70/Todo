@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('todoApp', [
-        'ui.router'
-    ])
-    .constant('ApiBasePath', '/api/todo');
+        'ui.router',
+        'todoService'
+    ]);
 })();

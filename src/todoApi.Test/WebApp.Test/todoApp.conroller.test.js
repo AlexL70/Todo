@@ -13,6 +13,6 @@
 
     it('caption', function () {
         expect(mainController).toBeDefined();
-        expect(mainController.caption).toEqual('Todo application');
+        expect(mainController.caption).toEqual('Todo Application');
     });
 });

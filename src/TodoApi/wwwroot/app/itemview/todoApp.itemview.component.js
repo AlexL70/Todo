@@ -7,7 +7,9 @@
         bindings: {
             key: '@',
             name: '<',
-            isComplete: '<'
+            isComplete: '<',
+            onUpdate: '&',
+            onDelete: '&'
         }
     });
 })();

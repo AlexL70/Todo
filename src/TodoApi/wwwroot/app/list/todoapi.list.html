@@ -1,5 +1,13 @@
 ﻿<div class="container">
     <div class="row">
-        <p>Page is under construction</p>
+        <h3>List of todo items</h3>
+        <button>Add new item</button>
+    </div>
+    
+    <div class="row" ng-if="lstCtrl.itemsList.length > 0">
+        <cmp-item-view class="col-sm-4" ng-repeat="item in lstCtrl.itemsList"
+                       key="{{item.key}}"
+                       name="item.name"
+                       is-complete="item.isComplete"></cmp-item-view>
     </div>
 </div>

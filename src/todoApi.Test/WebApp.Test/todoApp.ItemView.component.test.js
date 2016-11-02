@@ -1,4 +1,4 @@
-﻿describe('Todo tem view component', function () {
+﻿describe('Todo item view component', function () {
     var item;
     beforeEach(module('todoApp'));
 
@@ -23,13 +23,24 @@
             expect(ctrl.key).toEqual('dfb5e3db-403e-4789-a92a-dddf4c67e8a6');
             expect(ctrl.isComplete).toBe(false);
         });
+
+        it('on delete', function () {
+
+        });
     });
+
     describe('visualization', function () {
         beforeEach(module('testTemplates'));
 
-        var element, $scope, $compile;
+        var element, $scope, $compile, $httpBackend;
 
-        beforeEach(inject(function (_$rootScope_, _$compile_) {
+        beforeEach(inject(function ($injector, _$rootScope_, _$compile_) {
+            //  Eliminating router side effect
+            $httpBackend = $injector.get('$httpBackend');
+            ApiBasePath = $injector.get('ApiBasePath');
+            $httpBackend.whenGET('/api/todo').respond('');
+            //  End of eliminating router side effect
+
             $scope = _$rootScope_.$new();
             $compile = _$compile_;
             element = angular.element('\

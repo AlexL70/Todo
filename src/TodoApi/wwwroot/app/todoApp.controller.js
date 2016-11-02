@@ -9,6 +9,6 @@
     function MainController() {
         var main = this;
 
-        main.caption = 'Todo application'
+        main.caption = 'Todo Application'
     }
 })();

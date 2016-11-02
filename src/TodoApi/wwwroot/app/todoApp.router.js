@@ -13,8 +13,13 @@
         .state('list', {
             url: '/',
             templateUrl: '/app/list/todoapi.list.html',
-            controller: 'listController',
-            controllerAs: 'lstCtrl'
+            controller: 'ListController',
+            controllerAs: 'lstCtrl',
+            resolve: {
+                todoItems: ['TodoAppService', function (TodoAppService) {
+                    return TodoAppService.GetAll();
+                }],
+            }
         });
     }
 })();

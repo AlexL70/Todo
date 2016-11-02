@@ -1,0 +1,12 @@
+﻿body {
+}
+
+.loading {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
+
+.row {
+    margin-bottom: 8px;
+}

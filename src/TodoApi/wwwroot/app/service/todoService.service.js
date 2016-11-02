@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    angular.module('todoApp')
+    angular.module('todoService')
     .service('TodoAppService', TodoAppService);
 
     TodoAppService.$inject = ['$http', 'ApiBasePath'];

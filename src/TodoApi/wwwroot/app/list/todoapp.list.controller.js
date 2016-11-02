@@ -2,13 +2,13 @@
     "use strict";
 
     angular.module('todoApp')
-    .controller('listController', ListController);
+    .controller('ListController', ListController);
 
-    ListController.$inject = [];
+    ListController.$inject = ['todoItems'];
 
-    function ListController() {
+    function ListController(todoItems) {
         var lstCtrl = this;
-
-        this.list = [];
+        
+        lstCtrl.itemsList = todoItems.data;
     }
 })();
