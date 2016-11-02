@@ -13,7 +13,7 @@ namespace todoApi.Test
         {
         }
 
-        [Test]
+        [Test, Category("Stub")]
         public void TestTest()
         {
             Assert.AreEqual(1, 1);

@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        './TodoApi/node_modules/jquery/jquery.js',
+        //'./TodoApi/node_modules/jquery/jquery.js',
         './TodoApi/node_modules/angular/angular.js',
         './TodoApi/node_modules/angular-ui-router/release/angular-ui-router.js',
         './todoApi.Test/node_modules/angular-mocks/angular-mocks.js',
@@ -42,7 +42,7 @@ module.exports = function(config) {
     ngHtml2JsPreprocessor: {
         // If your build process changes the path to your templates,
         // use stripPrefix and prependPrefix to adjust it.
-        stripPrefix: 'TodoApi/',
+        stripPrefix: 'TodoApi/wwwroot',
 
         // the name of the Angular module to create
         moduleName: 'testTemplates'
