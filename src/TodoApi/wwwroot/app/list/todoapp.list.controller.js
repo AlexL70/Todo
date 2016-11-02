@@ -12,7 +12,6 @@
         lstCtrl.itemsList = todoItems.data;
 
         lstCtrl.addNewItem = function () {
-            console.log('go to the new state');
             $state.go('add');
         };
     }

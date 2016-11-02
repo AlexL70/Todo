@@ -17,14 +17,14 @@
             var cancel = $rootScope.$on('$stateChangeStart',
             function (event, toState, toParams, fromState, fromParams, options) {
                 $ctrl.showSpinner = true;
-                console.log('show spinner');
+                //console.log('show spinner');
             });
             cancellers.push(cancel);
 
             cancel = $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
                 $ctrl.showSpinner = false;
-                console.log('hide spinner');
+                //console.log('hide spinner');
             });
             cancellers.push(cancel);
 
