@@ -20,6 +20,12 @@
                     return TodoAppService.GetAll();
                 }],
             }
+        })
+        .state('add', {
+            url: '/new',
+            templateUrl: '/app/new/todoapi.newitem.html',
+            controller: 'NewItemController',
+            controllerAs: 'naCtrl'
         });
     }
 })();

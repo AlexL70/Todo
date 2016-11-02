@@ -8,7 +8,7 @@
 </head>
 <body ng-app="todoApp" ng-controller="MainController as main">
     <header>
-        <h3 class="text-center">{{main.caption}}</h3>
+        <h3 class="text-center">{{::main.caption}}</h3>
     </header>
 
     <loading-spinner class="loading"></loading-spinner>
@@ -56,5 +56,6 @@
     <!-- Service -->
     <script src="app/service/todoService.js"></script>
     <script src="app/service/todoService.service.js"></script>
+    <script src="app/new/todoApi.newitem.controller.js"></script>
 </body>
 </html>
