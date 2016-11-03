@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Threading;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using TodoApi.Models;
 
@@ -9,9 +11,17 @@ namespace TodoApi.Controllers
     [Route("api/[controller]")]
     public class TodoController : Controller
     {
+        private Random rnd;
+        private void Wait()
+        {
+            var delay = rnd.Next(10, 1000);
+            Thread.Sleep(delay);
+        }
+
         public TodoController(ITodoRepository todoItems)
         {
             TodoItems = todoItems;
+            rnd = new Random(DateTime.Now.Millisecond);
         }
         public ITodoRepository TodoItems { get; set; }
 
@@ -19,6 +29,7 @@ namespace TodoApi.Controllers
         [HttpGet]
         public IEnumerable<TodoItem> GetAll()
         {
+            Wait();
             return TodoItems.GetAll();
         }
 
@@ -26,6 +37,7 @@ namespace TodoApi.Controllers
         [HttpGet("{id}", Name = "GetTodo")]
         public IActionResult GetById(string Id)
         {
+            Wait();
             var item = TodoItems.Find(Id);
             if (item == null)
             {
@@ -42,6 +54,7 @@ namespace TodoApi.Controllers
             {
                 return BadRequest();
             }
+            Wait();
             TodoItems.Add(item);
             return CreatedAtRoute("GetTodo", new { id = item.Key }, item);
         }
@@ -54,6 +67,7 @@ namespace TodoApi.Controllers
                 return BadRequest();
             }
 
+            Wait();
             var todo = TodoItems.Find(id);
             if (todo == null)
             {
@@ -72,6 +86,7 @@ namespace TodoApi.Controllers
                 return BadRequest();
             }
 
+            Wait();
             var todo = TodoItems.Find(id);
             if (todo == null)
             {
@@ -88,6 +103,7 @@ namespace TodoApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
+            Wait();
             var todo = TodoItems.Find(id);
 
             if (todo == null)
