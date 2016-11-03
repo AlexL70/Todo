@@ -1,5 +1,11 @@
 ﻿<div class="container">
     <div class="row">
-        <h3>Create new item (stab)</h3>
+        <cmp-item-edit
+                       is-complete="false"
+                       submit-caption="Add"
+                       cancel-caption="Cancel"
+                       legend="Add new todo"
+                       on-submit="niCtrl.CreateNewItem(item)"
+                       on-cancel="niCtrl.ComeBack()"></cmp-item-edit>
     </div>
 </div>

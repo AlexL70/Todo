@@ -25,7 +25,7 @@
             url: '/new',
             templateUrl: '/app/controllers/new/todoapi.newitem.html',
             controller: 'NewItemController',
-            controllerAs: 'naCtrl'
+            controllerAs: 'niCtrl'
         });
     }
 })();

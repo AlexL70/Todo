@@ -4,23 +4,27 @@
     angular.module('todoControllers')
     .controller('NewItemController', NewItemController);
 
-    NewItemController.$inject = ['TodoAppService'];
+    NewItemController.$inject = ['TodoAppService', '$state'];
 
-    function NewItemController(TodoAppService) {
+    function NewItemController(TodoAppService, $state) {
         var niCtrl = this;
 
-        niCtrl.NewItem = { name: '', isComplete: false };
-
-        niCtrl.CreateNewItem = function() {
-            TodoAppService.Create(niCtrl.NewItem)
+        niCtrl.CreateNewItem = function (item) {
+            console.log('CreateNewItem called.');
+            TodoAppService.Create(item)
             .then(function (response) {
                 niCtrl.success = true;
-                niCtrl.NewItem.key = response.data.key;
+                niCtrl.NewItemKey = response.data.key;
+                $state.go('list');
             })
             .catch(function (response) {
                 niCtrl.success = false;
                 niCtrl.ErrorMessage = response.error.message;
             });
+        };
+
+        niCtrl.ComeBack = function () {
+            $state.go('list');
         }
     }
 })();

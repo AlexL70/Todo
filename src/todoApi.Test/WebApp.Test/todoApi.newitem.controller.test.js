@@ -1,14 +1,20 @@
 ﻿describe('todoApp NewItemController', function () {
     beforeEach(module('todoControllers'));
+    beforeEach(module('ui.router'));
+    beforeEach(module(function ($stateProvider) {
+        $stateProvider.state('list', { url: '/' });
+    }));
 
     var $controller;
     var $scope;
+    var $state;
     var mockService;
     var niCtrl;
 
-    beforeEach(inject(function (_$controller_, _$q_, $rootScope) {
+    beforeEach(inject(function (_$controller_, _$q_, _$state_, $rootScope) {
         $controller = _$controller_;
         $q = _$q_;
+        $state = _$state_
 
         mockService = {};
         mockService.Create = function (todo) {
@@ -32,11 +38,10 @@
         };
 
         $scope = $rootScope.$new();
-        niCtrl = $controller('NewItemController', { $scope: $scope, TodoAppService: mockService });
+        niCtrl = $controller('NewItemController', { $scope: $scope, $state: $state, TodoAppService: mockService });
     }));
 
     it('no item', function () {
-        niCtrl.NewItem = null;
         niCtrl.CreateNewItem();
         $scope.$apply();
         expect(niCtrl.success).toBe(false);
@@ -44,18 +49,18 @@
     });
 
     it('no item name', function () {
-        niCtrl.NewItem = { name: '', isComisComplete: false };
-        niCtrl.CreateNewItem();
+        var newItem = { name: '', isComisComplete: false };
+        niCtrl.CreateNewItem(newItem);
         $scope.$apply();
         expect(niCtrl.success).toBe(false);
         expect(niCtrl.ErrorMessage).toBe("Item name cannot be empty");
     });
 
     it('success', function () {
-        niCtrl.NewItem = { name: 'new item', isComisComplete: false };
-        niCtrl.CreateNewItem();
+        var newItem = { name: 'new item', isComisComplete: false };
+        niCtrl.CreateNewItem(newItem);
         $scope.$apply();
         expect(niCtrl.success).toBe(true);
-        expect(niCtrl.NewItem.key).toEqual("3eb15c09-79c5-4cbf-b855-e34b8f1ec1d2");
+        expect(niCtrl.NewItemKey).toEqual("3eb15c09-79c5-4cbf-b855-e34b8f1ec1d2");
     })
 });

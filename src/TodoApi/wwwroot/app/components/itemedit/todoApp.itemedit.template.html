@@ -1,0 +1,23 @@
+﻿<fieldset class="text-center">
+    <legend>{{::$ctrl.legend}}</legend>
+    <form name="itemEditForm">
+        <label for="name">Todo:</label>
+        <input type="text" 
+               name="name" 
+               placeholder="todo description"
+               required minlength="3" 
+               ng-model="$ctrl.name" />
+        <div ng-if="(itemEditForm.name.$error.minlength || itemEditForm.name.$error.required) && itemEditForm.name.$touched"
+              class="alert alert-danger"> <br />
+            Todo description is required and must me at least 3 symbols
+        </div> <br />
+        <label for="isComplete">Is complete: </label>
+        <input type="checkbox" ng-model="$ctrl.isComplete" />
+    </form>
+    <button ng-disabled="itemEditForm.$invalid" ng-click="$ctrl.onSubmit({item: {key: $ctrl.key, name: $ctrl.name, isComplete: $ctrl.isComplete}})">
+        {{::$ctrl.submitCaption}}
+    </button>
+    <button ng-click="$ctrl.onCancel()">
+        {{::$ctrl.cancelCaption}}
+    </button>
+</fieldset>
