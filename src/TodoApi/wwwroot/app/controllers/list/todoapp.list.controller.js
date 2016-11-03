@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    angular.module('todoApp')
+    angular.module('todoControllers')
     .controller('ListController', ListController);
 
     ListController.$inject = ['todoItems', '$state'];

@@ -12,7 +12,7 @@
         $stateProvider
         .state('list', {
             url: '/',
-            templateUrl: '/app/list/todoapi.list.html',
+            templateUrl: '/app/controllers/list/todoapi.list.html',
             controller: 'ListController',
             controllerAs: 'lstCtrl',
             resolve: {
@@ -23,7 +23,7 @@
         })
         .state('add', {
             url: '/new',
-            templateUrl: '/app/new/todoapi.newitem.html',
+            templateUrl: '/app/controllers/new/todoapi.newitem.html',
             controller: 'NewItemController',
             controllerAs: 'naCtrl'
         });

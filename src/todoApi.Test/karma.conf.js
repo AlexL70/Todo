@@ -20,6 +20,9 @@ module.exports = function(config) {
         './TodoApi/wwwroot/node_modules/angular-ui-router/release/angular-ui-router.js',
         './todoApi.Test/node_modules/angular-mocks/angular-mocks.js',
         './TodoApi/wwwroot/app/todoApp.js',
+        './TodoApi/wwwroot/app/service/todoService.js',
+        './TodoApi/wwwroot/app/components/todoApp.components.js',
+        './TodoApi/wwwroot/app/controllers/todoApp.controllers.js',
         './TodoApi/wwwroot/app/**/*.js',
         './TodoApi/wwwroot/app/**/*.html',
         './todoApi.Test/WebApp.Test/**/*.js'

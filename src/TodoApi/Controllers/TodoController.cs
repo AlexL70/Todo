@@ -50,9 +50,13 @@ namespace TodoApi.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] TodoItem item)
         {
-            if (item == null)
+            if (item == null || String.IsNullOrWhiteSpace(item.Name))
             {
-                return BadRequest();
+                return BadRequest(new { message = "No item provided" });
+            }
+            if (String.IsNullOrWhiteSpace(item.Name))
+            {
+                return BadRequest(new { message = "Item name cannot be empty" });
             }
             Wait();
             TodoItems.Add(item);
