@@ -13,11 +13,6 @@
         });
     });
 
-    //  Eliminating router side effect
-    beforeEach(function () {
-        $httpBackend.whenGET('/app/list/todoapi.list.html').respond('');
-    });
-
     it('GetAll', function () {
         $httpBackend.whenGET(ApiBasePath).respond([{
             "key": "6a47995d-2e67-47a2-9ac5-ec4b2c4d3ccb",

@@ -1,9 +1,9 @@
 ﻿(function () {
     "use strict";
 
-    angular.module('todoApp')
+    angular.module('todoComponents')
     .component('cmpItemView', {
-        templateUrl: '/app/itemview/todoApp.itemview.template.html',
+        templateUrl: '/app/components/itemview/todoApp.itemview.template.html',
         bindings: {
             key: '@',
             name: '<',

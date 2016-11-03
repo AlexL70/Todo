@@ -1,9 +1,9 @@
 ﻿(function () {
     "use strict";
 
-    angular.module('todoApp')
+    angular.module('todoComponents')
     .component('loadingSpinner', {
-        templateUrl: '/app/loading/loading.template.html',
+        templateUrl: '/app/components/loading/loading.template.html',
         controller: LoadingSpinnerController
     });
 

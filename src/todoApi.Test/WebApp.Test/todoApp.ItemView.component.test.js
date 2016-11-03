@@ -1,6 +1,6 @@
 ﻿describe('Todo item view component', function () {
     var item;
-    beforeEach(module('todoApp'));
+    beforeEach(module('todoComponents'));
 
     describe('controller', function () {
         var $componentController, ctrl;
@@ -32,15 +32,9 @@
     describe('visualization', function () {
         beforeEach(module('testTemplates'));
 
-        var element, $scope, $compile, $httpBackend;
+        var element, $scope, $compile;
 
-        beforeEach(inject(function ($injector, _$rootScope_, _$compile_) {
-            //  Eliminating router side effect
-            $httpBackend = $injector.get('$httpBackend');
-            ApiBasePath = $injector.get('ApiBasePath');
-            $httpBackend.whenGET('/api/todo').respond('');
-            //  End of eliminating router side effect
-
+        beforeEach(inject(function (_$rootScope_, _$compile_) {
             $scope = _$rootScope_.$new();
             $compile = _$compile_;
             element = angular.element('\
