@@ -10,7 +10,6 @@
         var niCtrl = this;
 
         niCtrl.CreateNewItem = function (item) {
-            console.log('CreateNewItem called.');
             TodoAppService.Create(item)
             .then(function (response) {
                 niCtrl.success = true;

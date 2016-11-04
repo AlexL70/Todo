@@ -1,23 +1,39 @@
 ﻿<fieldset class="text-center">
     <legend>{{::$ctrl.legend}}</legend>
-    <form name="itemEditForm">
-        <label for="name">Todo:</label>
-        <input type="text" 
-               name="name" 
-               placeholder="todo description"
-               required minlength="3" 
-               ng-model="$ctrl.name" />
-        <div ng-if="(itemEditForm.name.$error.minlength || itemEditForm.name.$error.required) && itemEditForm.name.$touched"
-              class="alert alert-danger"> <br />
-            Todo description is required and must me at least 3 symbols
-        </div> <br />
-        <label for="isComplete">Is complete: </label>
-        <input type="checkbox" ng-model="$ctrl.isComplete" />
+    <form name="itemEditForm" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Todo:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       name="name"
+                       class="form-control"
+                       placeholder="todo description"
+                       required minlength="3"
+                       ng-model="$ctrl.name" />
+            </div>
+            <div ng-if="(itemEditForm.name.$error.minlength || itemEditForm.name.$error.required) && itemEditForm.name.$touched"
+                 class="alert alert-danger">
+                Todo description is required and must me at least 3 symbols
+            </div> <br />
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2-offset col-sm-10">
+                <div class="checkbox">
+                    <label class="control-label">
+                        <input type="checkbox" ng-model="$ctrl.isComplete" />
+                        Is complete
+                    </label>
+                </div>
+            </div>
+        </div>
     </form>
-    <button ng-disabled="itemEditForm.$invalid" ng-click="$ctrl.onSubmit({item: {key: $ctrl.key, name: $ctrl.name, isComplete: $ctrl.isComplete}})">
+    <button ng-disabled="itemEditForm.$invalid" 
+            ng-click="$ctrl.onSubmit({item: {key: $ctrl.key, name: $ctrl.name, isComplete: $ctrl.isComplete}})"
+            class="btn btn-primary">
         {{::$ctrl.submitCaption}}
     </button>
-    <button ng-click="$ctrl.onCancel()">
+    <button ng-click="$ctrl.onCancel()"
+            class="btn btn-default">
         {{::$ctrl.cancelCaption}}
     </button>
 </fieldset>
