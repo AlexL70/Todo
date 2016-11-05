@@ -27,6 +27,10 @@
         it('on delete', function () {
 
         });
+
+        it('on edit', function () {
+
+        });
     });
 
     describe('visualization', function () {
@@ -34,8 +38,8 @@
 
         var element, $scope, $compile;
 
-        beforeEach(inject(function (_$rootScope_, _$compile_) {
-            $scope = _$rootScope_.$new();
+        beforeEach(inject(function ($rootScope, _$compile_) {
+            $scope = $rootScope.$new();
             $compile = _$compile_;
             element = angular.element('\
                 <cmp-item-view \
