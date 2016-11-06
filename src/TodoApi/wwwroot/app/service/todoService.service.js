@@ -25,7 +25,7 @@
         };
 
         service.Update = function (todo) {
-            var response = $http.put(ApiBasePath + '/' + todo.key);
+            var response = $http.put(ApiBasePath + '/' + todo.key, todo);
             return response;
         };
 

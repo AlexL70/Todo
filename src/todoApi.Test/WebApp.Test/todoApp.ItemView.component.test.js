@@ -3,7 +3,7 @@
     beforeEach(module('todoComponents'));
 
     describe('controller', function () {
-        var $componentController, ctrl;
+        var $componentController, ctrl, fnUpdate, fnDelete;
 
         beforeEach(inject(function (_$componentController_) {
             $componentController = _$componentController_;
@@ -13,7 +13,15 @@
                 name: "TestItem",
                 isComplete: false
             };
-            var bindings = { key: item.key, name: item.name, isComplete: item.isComplete };
+            fnUpdate = jasmine.createSpy('onUpdate');
+            fnDelete = jasmine.createSpy('onDelete');
+            var bindings = {
+                key: item.key,
+                name: item.name,
+                isComplete: item.isComplete,
+                onUpdste: fnUpdate,
+                onDelete: fnDelete
+            };
             ctrl = $componentController('cmpItemView', null, bindings);
         }));
 
@@ -25,11 +33,15 @@
         });
 
         it('on delete', function () {
-
+            ctrl.onDelete({ key: ctrl.key });
+            expect(fnDelete).toHaveBeenCalled();
+            expect(fnDelete).toHaveBeenCalledWith({ key: 'dfb5e3db-403e-4789-a92a-dddf4c67e8a6' });
         });
 
         it('on edit', function () {
-
+            ctrl.onUpdste({ key: ctrl.key });
+            expect(fnUpdate).toHaveBeenCalled();
+            expect(fnUpdate).toHaveBeenCalledWith({ key: 'dfb5e3db-403e-4789-a92a-dddf4c67e8a6' });
         });
     });
 

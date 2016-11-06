@@ -8,6 +8,8 @@
         <cmp-item-view class="col-sm-4" ng-repeat="item in lstCtrl.itemsList"
                        key="{{item.key}}"
                        name="item.name"
-                       is-complete="item.isComplete"></cmp-item-view>
+                       is-complete="item.isComplete"
+                       on-update="lstCtrl.Update(key)"
+                       on-delete="lstCtrl.Delete(key)"></cmp-item-view>
     </div>
 </div>

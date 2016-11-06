@@ -43,13 +43,13 @@
                 name: ctrl.name,
                 isComplete: ctrl.isComplete
             };
-            ctrl.onSumbit(item);
+            ctrl.onSumbit({ item: item });
             expect(fnSubmit).toHaveBeenCalled();
-            expect(fnSubmit).toHaveBeenCalledWith({
+            expect(fnSubmit).toHaveBeenCalledWith({item: {
                 key: "dfb5e3db-403e-4789-a92a-dddf4c67e8a6",
                 name: "New name",
                 isComplete: true
-            });
+            }});
         });
 
         it('should call cancel method', function () {

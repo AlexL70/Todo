@@ -3,12 +3,12 @@
     beforeEach(module('ui.router'));
     beforeEach(module(function ($stateProvider) {
         $stateProvider.state('list', { url: '/' });
-        $stateProvider.state('new', { url: '/new' });
     }));
 
     var $controller;
     var $scope;
     var $state;
+    var $q;
     var mockService;
     var niCtrl;
 

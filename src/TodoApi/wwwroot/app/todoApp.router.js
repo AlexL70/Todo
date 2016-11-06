@@ -26,6 +26,17 @@
             templateUrl: '/app/controllers/new/todoapi.newitem.html',
             controller: 'NewItemController',
             controllerAs: 'niCtrl'
+        })
+        .state('edit', {
+            url: '/item/{id}',
+            templateUrl: '/app/controllers/edit/todoapi.edititem.html',
+            controller: 'EditItemController',
+            controllerAs: 'eiCtrl',
+            resolve: {
+                item: ['TodoAppService', '$stateParams', function(TodoAppService, $stateParams) {
+                    return TodoAppService.GetTodo($stateParams.id);
+                }],
+            }
         });
     }
 })();

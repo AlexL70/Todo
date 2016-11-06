@@ -35,7 +35,7 @@ namespace TodoApi.Controllers
 
         //  GET /api/todo/{id}
         [HttpGet("{id}", Name = "GetTodo")]
-        public IActionResult GetById(string Id)
+        public IActionResult GetById([FromRoute] string Id)
         {
             Wait();
             var item = TodoItems.Find(Id);

@@ -1,0 +1,12 @@
+﻿<div class="container">
+    <div class="row">
+        <cmp-item-edit key="{{eiCtrl.item.key}}"
+                       name="eiCtrl.item.name"
+                       is-complete="eiCtrl.item.isComplete"
+                       submit-caption="Save"
+                       cancel-caption="Cancel"
+                       legend="Edit todo item"
+                       on-submit="eiCtrl.UpdateItem(item)"
+                       on-cancel="eiCtrl.ComeBack()"></cmp-item-edit>
+    </div>
+</div>
