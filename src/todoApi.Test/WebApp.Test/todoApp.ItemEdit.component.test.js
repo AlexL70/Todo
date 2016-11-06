@@ -52,7 +52,7 @@
             });
         });
 
-        it('should call cancel', function () {
+        it('should call cancel method', function () {
             ctrl.onCancel();
             expect(fnCancel).toHaveBeenCalled();
         });

@@ -3,6 +3,7 @@
     beforeEach(module('ui.router'));
     beforeEach(module(function ($stateProvider) {
         $stateProvider.state('list', { url: '/' });
+        $stateProvider.state('new', { url: '/new' });
     }));
 
     var $controller;
@@ -62,5 +63,13 @@
         $scope.$apply();
         expect(niCtrl.success).toBe(true);
         expect(niCtrl.NewItemKey).toEqual("3eb15c09-79c5-4cbf-b855-e34b8f1ec1d2");
+        expect($state.is('list')).toBe(true);
     })
+
+    it('cancel', function () {
+        niCtrl.ComeBack();
+        $scope.$apply();
+        expect($state.$current.name).toEqual('list');
+        //expect($state.is('list')).toBe(true);
+    });
 });
