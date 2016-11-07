@@ -1,0 +1,12 @@
+﻿<div class="container">
+    <div class="row">
+        <h3 class="text-center">Do you really want to delete todo item?</h3>
+        <cmp-item-view key="{{diCtrl.item.key}}"
+                       name="diCtrl.item.name"
+                       is-complete="diCtrl.item.isComplete"
+                       buttons-visible="false"></cmp-item-view>
+
+        <button class="btn btn-primary" ng-click="diCtrl.DeleteItem()">Delete</button>
+        <button class="btn btn-default" ng-click="diCtrl.ComeBack()">Cancel</button>
+    </div>
+</div>

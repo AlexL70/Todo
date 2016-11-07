@@ -16,11 +16,11 @@
         };
 
         lstCtrl.Update = function (key) {
-            $state.go('edit', { 'id': key });
+            $state.go('edit', { id: key });
         };
 
         lstCtrl.Delete = function (key) {
-            $state.go('delete', key);
+            $state.go('delete', { id: key });
         };
     }
 })();

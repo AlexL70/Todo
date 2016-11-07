@@ -8,8 +8,9 @@
             key: '@',
             name: '<',
             isComplete: '<',
-            onUpdate: '&',
-            onDelete: '&'
+            buttonsVisible: '@',
+            onUpdate: '&?',
+            onDelete: '&?'
         }
     });
 })();

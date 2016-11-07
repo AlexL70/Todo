@@ -53,7 +53,7 @@
         eiCtrl = $controller('EditItemController', { item: item, $scope: $scope, $state: $state, TodoAppService: mockService });
     }));
 
-    it('should be definec', function () {
+    it('should be defined', function () {
         expect(eiCtrl).toBeDefined();
         expect(eiCtrl.item).toBeDefined();
         expect(eiCtrl.item.key).toEqual('3eb15c09-79c5-4cbf-b855-e34b8f1ec1d2');

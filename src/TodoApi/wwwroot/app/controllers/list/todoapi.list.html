@@ -9,7 +9,11 @@
                        key="{{item.key}}"
                        name="item.name"
                        is-complete="item.isComplete"
+                       buttons-visible="true"
                        on-update="lstCtrl.Update(key)"
                        on-delete="lstCtrl.Delete(key)"></cmp-item-view>
     </div>
+    <h4 class="text-center" ng-if="lstCtrl.itemsList.length === 0">
+        No items in the list. Use "Add new item button" to add some.
+    </h4>
 </div>

@@ -8,7 +8,7 @@
             <span ng-if="!$ctrl.isComplete" class="glyphicon glyphicon-minus">&nbsp;To do</span>
         </div>
     </div>
-    <div>
+    <div ng-show="{{$ctrl.buttonsVisible}}">
         <button class="btn btn-default" ng-click="$ctrl.onUpdate({key: $ctrl.key})">Edit</button>
         <button class="btn btn-default" ng-click="$ctrl.onDelete({key: $ctrl.key})">Delete</button>
     </div>

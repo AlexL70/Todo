@@ -37,6 +37,17 @@
                     return TodoAppService.GetTodo($stateParams.id);
                 }],
             }
+        })
+        .state('delete', {
+            url: '/delete/{id}',
+            templateUrl: '/app/controllers/delete/todoapi.deleteitem.html',
+            controller: 'DeleteItemController',
+            controllerAs: 'diCtrl',
+            resolve: {
+                item: ['TodoAppService', '$stateParams', function (TodoAppService, $stateParams) {
+                    return TodoAppService.GetTodo($stateParams.id);
+                }],
+            }
         });
     }
 })();
