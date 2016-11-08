@@ -23,14 +23,14 @@
             var response;
             var f = function () {
                 if (!todo) {
-                    response = { Status: 400, error: { message: "No item provided" } };
+                    response = { status: 400, statusText: "No item provided" };
                     deferred.reject(response);
                 } else if (!todo.name) {
-                    response = { Status: 400, error: { message: "Item name cannot be empty" } };
+                    response = { status: 400, statusText: "Item name cannot be empty" };
                     deferred.reject(response);
                 } else {
                     todo.key = "3eb15c09-79c5-4cbf-b855-e34b8f1ec1d2";
-                    response = { Status: 201, data: todo };
+                    response = { status: 201, data: todo };
                     deferred.resolve(response);
                 }
             };
@@ -46,7 +46,7 @@
         niCtrl.CreateNewItem();
         $scope.$apply();
         expect(niCtrl.success).toBe(false);
-        expect(niCtrl.ErrorMessage).toEqual("No item provided");
+        expect(niCtrl.ErrorMessage).toEqual("400: No item provided");
     });
 
     it('no item name', function () {
@@ -54,7 +54,7 @@
         niCtrl.CreateNewItem(newItem);
         $scope.$apply();
         expect(niCtrl.success).toBe(false);
-        expect(niCtrl.ErrorMessage).toBe("Item name cannot be empty");
+        expect(niCtrl.ErrorMessage).toBe("400: Item name cannot be empty");
     });
 
     it('success', function () {

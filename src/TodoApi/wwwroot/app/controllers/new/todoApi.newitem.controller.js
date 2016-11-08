@@ -18,7 +18,7 @@
             })
             .catch(function (response) {
                 niCtrl.success = false;
-                niCtrl.ErrorMessage = response.error.message;
+                niCtrl.ErrorMessage = response.status + ': ' + response.statusText;
             });
         };
 

@@ -13,7 +13,10 @@ namespace TodoApi.Models
 
         public TodoRepository()
         {
-            Add(new TodoItem { Name = "Item 1" });
+            Add(new TodoItem { Name = "Walk the dog" });
+            Add(new TodoItem { Name = "Feed the dog" });
+            Add(new TodoItem { Name = "Buy some food" });
+            Add(new TodoItem { Name = "Stop smoking" });
         }
 
         public void Add(TodoItem item)

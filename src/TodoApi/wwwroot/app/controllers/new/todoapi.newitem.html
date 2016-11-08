@@ -8,4 +8,7 @@
                        on-submit="niCtrl.CreateNewItem(item)"
                        on-cancel="niCtrl.ComeBack()"></cmp-item-edit>
     </div>
+    <div class="alert alert-danger" ng-show="niCtrl.success===false">
+        {{niCtrl.ErrorMessage}}
+    </div>
 </div>
