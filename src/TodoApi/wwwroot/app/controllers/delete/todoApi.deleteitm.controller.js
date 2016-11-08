@@ -19,7 +19,7 @@
             })
             .catch(function (response) {
                 diCtrl.success = false;
-                diCtrl.ErrorMessage = response.error.message;
+                diCtrl.ErrorMessage = response.status + ': ' + response.statusText;
             });
         };
 

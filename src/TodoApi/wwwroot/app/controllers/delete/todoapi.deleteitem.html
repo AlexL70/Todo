@@ -9,4 +9,7 @@
         <button class="btn btn-primary" ng-click="diCtrl.DeleteItem()">Delete</button>
         <button class="btn btn-default" ng-click="diCtrl.ComeBack()">Cancel</button>
     </div>
+    <div class="alert alert-danger" ng-show="diCtrl.success===false">
+        {{diCtrl.ErrorMessage}}
+    </div>
 </div>

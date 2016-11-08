@@ -30,11 +30,11 @@
             var response;
             var f = function () {
                 if (key == '3eb15c09-79c5-4cbf-b855-e34b8f1ec1d2') {
-                    response = { Status: 204 };
+                    response = { status: 204 };
                     deferred.resolve(response);
                 }
                 else {
-                    response = { Status: 404, error: { message: "Item not found" } };
+                    response = { status: 404, statusText: "Item not found" };
                     deferred.reject(response);
                 }
             };
@@ -61,6 +61,7 @@
         diCtrl.DeleteItem();
         $scope.$apply();
         expect(diCtrl.success).toBe(false);
+        expect(diCtrl.ErrorMessage).toEqual('404: Item not found');
     });
 
     it('success', function () {

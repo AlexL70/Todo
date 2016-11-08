@@ -30,13 +30,13 @@
             var response;
             var f = function () {
                 if (!todo) {
-                    response = { Status: 400, error: { message: "No item provided" } };
+                    response = { status: 400, statusText: "No item provided" };
                     deferred.reject(response);
                 } else if (!todo.name) {
-                    response = { Status: 400, error: { message: "Item name cannot be empty" } };
+                    response = { status: 400, statusText: "Item name cannot be empty" };
                     deferred.reject(response);
                 } else if(todo.key != item.data.key) {
-                    response = { Status: 404, error: { message: "Item not found"} };
+                    response = { status: 404, statusText: "Item not found" };
                     deferred.reject(response);
                 }
                 else {
@@ -65,7 +65,7 @@
         eiCtrl.UpdateItem();
         $scope.$apply();
         expect(eiCtrl.success).toBe(false);
-        expect(eiCtrl.ErrorMessage).toEqual('No item provided');
+        expect(eiCtrl.ErrorMessage).toEqual('400: No item provided');
     });
 
     it('no item name', function () {
@@ -77,7 +77,7 @@
         eiCtrl.UpdateItem(item);
         $scope.$apply();
         expect(eiCtrl.success).toBe(false);
-        expect(eiCtrl.ErrorMessage).toEqual('Item name cannot be empty');
+        expect(eiCtrl.ErrorMessage).toEqual('400: Item name cannot be empty');
     });
 
     it('item not found', function () {
@@ -89,7 +89,7 @@
         eiCtrl.UpdateItem(item);
         $scope.$apply();
         expect(eiCtrl.success).toBe(false);
-        expect(eiCtrl.ErrorMessage).toEqual('Item not found');
+        expect(eiCtrl.ErrorMessage).toEqual('404: Item not found');
     });
 
     it('success', function () {

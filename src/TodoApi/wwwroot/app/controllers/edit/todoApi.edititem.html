@@ -9,4 +9,7 @@
                        on-submit="eiCtrl.UpdateItem(item)"
                        on-cancel="eiCtrl.ComeBack()"></cmp-item-edit>
     </div>
+    <div class="alert alert-danger" ng-show="eiCtrl.success===false">
+        {{eiCtrl.ErrorMessage}}
+    </div>
 </div>
